@@ -3,8 +3,8 @@
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/isaac-cf-wong/markdown-template/main.svg)](https://results.pre-commit.ci/latest/github/isaac-cf-wong/markdown-template/main)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-This is a template repository for markdown-based projects.
-It includes configurations for linting, spell checking, and formatting markdown files.
+This is a template repository for markdown-based projects. It includes
+configurations for linting, spell checking, and formatting markdown files.
 
 ## Features
 
