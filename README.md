@@ -1,6 +1,6 @@
 # A markdown repository template
 
-[![CI](https://github.com/isaac-cf-wong/markdown-template/actions/workflows/ci.yml/badge.svg)](https://github.com/isaac-cf-wong/markdown-template/actions/workflows/CI.yml)
+[![CI](https://github.com/isaac-cf-wong/markdown-template/actions/workflows/CI.yml/badge.svg)](https://github.com/isaac-cf-wong/markdown-template/actions/workflows/CI.yml)
 
 This is a template repository for markdown-based projects.
 It includes configurations for linting, spell checking, and formatting markdown files.
