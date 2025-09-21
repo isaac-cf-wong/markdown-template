@@ -3,7 +3,7 @@ name: Create Release
 on:
   push:
     tags:
-      - "v*" # Triggers on version tags like v1.0.0, v2.1.0, etc.
+      - 'v*' # Triggers on version tags like v1.0.0, v2.1.0, etc.
 
 jobs:
   release:
