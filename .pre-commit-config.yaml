@@ -1,28 +1,28 @@
 ---
 ci:
-  autoupdate_commit_msg: "chore: update pre-commit hooks"
-  autofix_commit_msg: "style: pre-commit fixes"
+  autofix_commit_msg: |
+    [pre-commit.ci] auto fixes from pre-commit.com hooks
+
+    for more information, see https://pre-commit.ci
+  autofix_prs: true
+  autoupdate_branch: ""
+  autoupdate_commit_msg: "[pre-commit.ci] pre-commit autoupdate"
+  autoupdate_schedule: weekly
+  skip: []
+  submodules: false
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
       - id: check-added-large-files
-        stages: [pre-commit, manual]
       - id: check-case-conflict
-        stages: [pre-commit, manual]
       - id: check-merge-conflict
-        stages: [pre-commit, manual]
       - id: check-symlinks
-        stages: [pre-commit, manual]
       - id: check-yaml
-        stages: [pre-commit, manual]
       - id: end-of-file-fixer
-        stages: [pre-commit, manual]
       - id: mixed-line-ending
-        stages: [pre-commit, manual]
       - id: trailing-whitespace
-        stages: [pre-commit, manual]
 
   - repo: https://github.com/streetsidesoftware/cspell-cli
     rev: v9.2.0 # Keep this version or update to the latest stable
@@ -31,7 +31,6 @@ repos:
         name: Check spelling in Markdown and TeX files
         args: ["--config", "cspell.json"]
         files: ^.*\.(tex|py|rst|md)$
-        stages: [pre-commit, manual]
       - id: cspell
         name: check commit message spelling
         args:
@@ -59,7 +58,6 @@ repos:
       - id: markdownlint
         args: [--fix, --config=.markdownlint.yaml]
         files: ^.*\.md$
-        stages: [pre-commit, manual]
 
   - repo: https://github.com/adrienverge/yamllint.git
     rev: v1.29.0
@@ -73,4 +71,3 @@ repos:
       - id: detect-secrets
         name: Detect secrets within the codebase
         description: Detect and block secrets from committing to the codebase
-        stages: [pre-commit, manual]
