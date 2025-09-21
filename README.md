@@ -32,6 +32,9 @@ pip install pre-commit
 # Install the git hook scripts
 pre-commit install
 
+# Install commit-msg hook for spell checking commit messages
+pre-commit install --hook-type=commit-msg
+
 # (Optional) Run against all files
 pre-commit run --all-files
 ```
@@ -49,6 +52,7 @@ curl -O https://raw.githubusercontent.com/isaac-cf-wong/markdown-template/main/.
 # Install and setup pre-commit
 pip install pre-commit
 pre-commit install
+pre-commit install --hook-type=commit-msg
 ```
 
 ## Configuration Files
