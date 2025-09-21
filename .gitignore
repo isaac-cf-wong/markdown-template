@@ -1,0 +1,36 @@
+# macOS system files
+.DS_Store
+
+# VS Code settings
+.vscode/
+
+# Node modules (if any tooling is used)
+node_modules/
+
+# Logs
+*.log
+
+# Backup files
+*~
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Dependency directories
+dist/
+build/
+
+# Environment files
+.env
+.env.*
+
+# Coverage reports
+coverage/
+
+# Ignore output from markdown preview plugins
+.markdown-preview/
+
+# Ignore any generated HTML or PDF files
+*.html
+*.pdf

@@ -1,0 +1,76 @@
+---
+ci:
+  autoupdate_commit_msg: "chore: update pre-commit hooks"
+  autofix_commit_msg: "style: pre-commit fixes"
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-added-large-files
+        stages: [pre-commit, manual]
+      - id: check-case-conflict
+        stages: [pre-commit, manual]
+      - id: check-merge-conflict
+        stages: [pre-commit, manual]
+      - id: check-symlinks
+        stages: [pre-commit, manual]
+      - id: check-yaml
+        stages: [pre-commit, manual]
+      - id: end-of-file-fixer
+        stages: [pre-commit, manual]
+      - id: mixed-line-ending
+        stages: [pre-commit, manual]
+      - id: trailing-whitespace
+        stages: [pre-commit, manual]
+
+  - repo: https://github.com/streetsidesoftware/cspell-cli
+    rev: v9.2.0 # Keep this version or update to the latest stable
+    hooks:
+      - id: cspell
+        name: Check spelling in Markdown and TeX files
+        args: ["--config", "cspell.json"]
+        files: ^.*\.(tex|py|rst|md)$
+        stages: [pre-commit, manual]
+      - id: cspell
+        name: check commit message spelling
+        args:
+          - --config cspell.json
+          - --no-must-find-files
+          - --no-progress
+          - --no-summary
+          - --files
+          - .git/COMMIT_EDITMSG
+        stages: [commit-msg]
+        always_run: true
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.1.0
+    hooks:
+      - id: prettier
+        additional_dependencies:
+          - prettier@2.1.2
+          - "@prettier/plugin-xml@0.12.0"
+        files: \.(md|markdown|json|yaml|yml|css|js|ts)$
+
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.45.0
+    hooks:
+      - id: markdownlint
+        args: [--fix, --config=.markdownlint.yaml]
+        files: ^.*\.md$
+        stages: [pre-commit, manual]
+
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.29.0
+    hooks:
+      - id: yamllint
+        args: [-c, .yamllint.yaml]
+
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0 # Use the latest stable version
+    hooks:
+      - id: detect-secrets
+        name: Detect secrets within the codebase
+        description: Detect and block secrets from committing to the codebase
+        stages: [pre-commit, manual]
