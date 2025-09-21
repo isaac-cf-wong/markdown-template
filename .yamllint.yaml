@@ -3,9 +3,9 @@ ignore: |
   .github/workflows/*.yml  # Ignore GitHub Actions workflows
 
 yaml-files:
-  - "*.yaml"
-  - "*.yml"
-  - ".yamllint"
+  - '*.yaml'
+  - '*.yml'
+  - '.yamllint'
 
 rules:
   braces: enable

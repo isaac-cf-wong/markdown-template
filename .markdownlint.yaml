@@ -19,7 +19,7 @@ MD012: false
 
 # Enforce trailing punctuation in headings for consistency
 MD026:
-  punctuation: ".,;:!?"
+  punctuation: '.,;:!?'
 
 # Allow inline HTML for flexibility in Markdown rendering
 MD033: false
