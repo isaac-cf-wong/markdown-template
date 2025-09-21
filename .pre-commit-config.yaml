@@ -5,8 +5,8 @@ ci:
 
     for more information, see https://pre-commit.ci
   autofix_prs: true
-  autoupdate_branch: ""
-  autoupdate_commit_msg: "[pre-commit.ci] pre-commit autoupdate"
+  autoupdate_branch: ''
+  autoupdate_commit_msg: '[pre-commit.ci] pre-commit autoupdate'
   autoupdate_schedule: weekly
   skip: []
   submodules: false
@@ -29,7 +29,7 @@ repos:
     hooks:
       - id: cspell
         name: Check spelling in Markdown and TeX files
-        args: ["--config", "cspell.json"]
+        args: ['--config', 'cspell.json']
         files: ^.*\.(tex|py|rst|md)$
       - id: cspell
         name: check commit message spelling
@@ -49,7 +49,7 @@ repos:
       - id: prettier
         additional_dependencies:
           - prettier@2.1.2
-          - "@prettier/plugin-xml@0.12.0"
+          - '@prettier/plugin-xml@0.12.0'
         files: \.(md|markdown|json|yaml|yml|css|js|ts)$
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
