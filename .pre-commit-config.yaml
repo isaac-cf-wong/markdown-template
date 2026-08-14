@@ -6,8 +6,8 @@ ci:
     for more information, see https://pre-commit.ci
   autofix_prs: true
   autoupdate_branch: ''
-  autoupdate_commit_msg: '[pre-commit.ci] pre-commit autoupdate'
-  autoupdate_schedule: weekly
+  autoupdate_commit_msg: 'chore: [pre-commit.ci] pre-commit autoupdate'
+  autoupdate_schedule: quarterly
   skip: []
   submodules: false
 
@@ -20,44 +20,32 @@ repos:
       - id: check-merge-conflict
       - id: check-symlinks
       - id: check-yaml
+      - id: check-toml
+      - id: debug-statements
       - id: end-of-file-fixer
       - id: mixed-line-ending
       - id: trailing-whitespace
+      - id: check-docstring-first
+      - id: check-json
 
-  - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v9.2.0 # Keep this version or update to the latest stable
+  - repo: https://github.com/crate-ci/typos
+    rev: v1.49.0
     hooks:
-      - id: cspell
-        name: Check spelling in Markdown and TeX files
-        args: ['--config', 'cspell.json']
-        files: ^.*\.(tex|py|rst|md)$
-      - id: cspell
-        name: check commit message spelling
-        args:
-          - --config cspell.json
-          - --no-must-find-files
-          - --no-progress
-          - --no-summary
-          - --files
-          - .git/COMMIT_EDITMSG
-        stages: [commit-msg]
-        always_run: true
+      - id: typos
+        args: []
 
-  - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v3.1.0
+  - repo: https://github.com/rbubley/mirrors-prettier
+    rev: v3.9.6
     hooks:
       - id: prettier
-        additional_dependencies:
-          - prettier@2.1.2
-          - '@prettier/plugin-xml@0.12.0'
-        files: \.(md|markdown|json|yaml|yml|css|js|ts)$
 
-  - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.45.0
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.23.2
     hooks:
-      - id: markdownlint
-        args: [--fix, --config=.markdownlint.yaml]
-        files: ^.*\.md$
+      - id: markdownlint-cli2
+        args:
+          - --config
+          - .markdownlint.yaml
 
   - repo: https://github.com/adrienverge/yamllint.git
     rev: v1.29.0
@@ -65,9 +53,17 @@ repos:
       - id: yamllint
         args: [-c, .yamllint.yaml]
 
-  - repo: https://github.com/Yelp/detect-secrets
-    rev: v1.5.0 # Use the latest stable version
+  - repo: https://github.com/ComPWA/taplo-pre-commit
+    rev: v0.9.3
     hooks:
-      - id: detect-secrets
-        name: Detect secrets within the codebase
-        description: Detect and block secrets from committing to the codebase
+      - id: taplo-format
+
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.7.12
+    hooks:
+      - id: actionlint
+
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.1
+    hooks:
+      - id: gitleaks
